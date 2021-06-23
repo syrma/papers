@@ -1,6 +1,6 @@
 \documentclass[review]{elsarticle}
 
-\usepackage{lineno,hyperref}
+\usepackage{lineno,hyperref,amsmath,amsfonts,amssymb,graphicx}
 \modulolinenumbers[5]
 
 %\journal{Journal of \LaTeX\ Templates}
@@ -57,46 +57,21 @@
 \address[hbn]{Harbin Institute of Technology, 92 Xidazhi Street, Nangang District, Harbin City, Heilongjiang Province, China}
 \address[cne]{Université frères Mentouri Constantine 1, route d'Ain El Bey, 25017 Constantine, Algeria}
 
-\begin{abstract}
-
-\end{abstract}
-
-\begin{keyword}
-deep reinforcement learning \sep actor critic \sep policy optimization \sep continuous control \sep generalization \sep atari 
-\end{keyword}
+\input{sections/0-abstract}
 
 \end{frontmatter}
 
-\section{Introduction}
+\include{sections/1-introduction}
 
-In the recent years, technical advancement gave Artificial intelligence (AI) a new breath by facilitating the use of computation-heavy, highly scalable Artificial Neural Networks (ANN) as function approximators, thus achieving remarkable results in what is commonly referred to as Deep Learning. Indeed, despite their theoretical simplicity, ANNs have proved to be a reliable tool to approximate complex, real-world functions given enough computational power. Deep Reinforcement Learning refers to the practice of harnessing the combined power of new technologies and deep ANNs to put into practice the previously purely theoretical methods of Reinforcement Learning (RL). 
+\include{sections/7-relatedworks}
 
-Deep RL subsequently achieved impressive results, in particular in board games such as Go, Shogi and Chess, leading to the algorithm largely outperforming any human player. In several more cases however, Deep RL offers more potential for future AI research than tangible state-of-the-art results. For instance, Reinforcement Learning methods have yet to be used in physical systems, either due to their needing far too much data to learn from %TODO (reference to some review of dqn or vpg)
-or to their complexity and sensitivity to hyperparameters. %TODO (reference to drl that matters and similar stuff). 
-While many applications are still more reliably solved with the help of human-expert-labeled data %ref
-RL research offers the possibility of AI eventually growing beyond the need for such data, doing so by working on two fronts:
-\begin{itemize}
-\item Equipping AI with the autonomy to generate its own learning examples through interaction with the environment, instead of relying on expert-labeled data.
-\item Developing a meta-paradigm that solves the problem of learning, irrespective of the task or application to be learned.
-\end{itemize}
+\include{sections/2-preliminaries}
 
+%\include{sections/3-method}
 
-\section{Front matter}
+%\include{sections/4-experiments}
 
-We can distinguish three general directions that research takes when devising a solution to RL problems: optimizing the policy function, estimating a value function, and representing the model. We tend to classify solutions by whether they include or omit one or more of the above-mentioned elements.
-
-For instance, model-free RL is a class of methods whose approach to solving the RL problem does not rely on having a model of the environment: that is, an internal representation (given or approximated) of the reward function and the transition probability function. A popular sub-class of model-free RL are the Policy Gradient methods.
-
-As their name suggests, Policy Gradient methods mainly try to solve the RL problem directly by optimizing the policy function $\pi$. They are relatively straight-forward to implement 
-
-
-PPO is relatively simple to implement and deploy. The trend in model-free RL has been to improve performance through increasingly complex methods, which comes at the great cost of the making RL methods unpractical to use in physical systems. This is at odds with the very purpose of advancing Reinforcement Learning research, a field aiming to create a general paradigm that requires less human intervention than any other known Artificial Intelligence model.
-
-The present article aims to introduce a model whereby Policy Optimization algorithms can be expanded and 
-
-\section{Bibliography styles}
-
-There are various bibliography styles available. You can select the style of your choice in the preamble of this document. These styles are Elsevier styles based on standard styles like Harvard and Vancouver. Please use Bib\TeX\ to generate your bibliography and include DOIs whenever available.
+%\include{sections/5-conclusion}
 
 \section*{References}
 
