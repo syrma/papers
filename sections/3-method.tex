@@ -1,5 +1,30 @@
 \section{Method}
 
-Policy Gradients tend to have a high-variance, needing sometimes an unreasonable amount of samples in order to converge. The attempts to improve sample efficiency in PG methods have mostly consisted of developing increasingly complex methods, which in turn makes replicating results hard if not nearly impossible, thus slowing down research and limiting the potential use of these methods in real-life applications.
+\begin{algorithm}[H]
+\DontPrintSemicolon
+  
+  \KwInput{Initial actor network parameters $\theta_0$, initial critic parameter list $\phi^0_0, \dots, \phi^n_0$}
+  %\KwOutput{Your output}
+  %\KwData{Testing set $x$}
+  $\sum_{i=1}^{\infty} := 0$
+  \tcc{Now this is an if...else conditional loop}
+  \For{k in [1, nepochs]}
+    {
+        Collect set of trajectories $\mathcal{D}_k$
+        
+        Call GC + Aggregation function for an estimate of V
 
-Ensemble techniques have been used (insert ref)
+        Compute $\hat{V}$
+
+        Compute GAE
+
+        Compute the policy loss and update the policy via gradient ascent
+         
+    }
+  \For{i in [1, n]}
+    {
+    	Update $V_{\phi^1}$	
+    } 
+    
+\caption{Generalized Critic Policy Optimization}
+\end{algorithm}

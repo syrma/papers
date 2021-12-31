@@ -37,11 +37,16 @@
 \bibliographystyle{elsarticle-num}
 %%%%%%%%%%%%%%%%%%%%%%%
 
+%\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\usepackage[linesnumbered, ruled, vlined]{algorithm2e}
+\SetKwInput{KwInput}{Input}                % Set the Input
+\SetKwInput{KwOutput}{Output}              % set the Output
+
 \begin{document}
 
 \begin{frontmatter}
 
-\title{Using Generalized Critic Policy Optimization to Play Atari Games}
+\title{Using Generalized Critic Policy Optimization}
 
 %% or include affiliations in footnotes:
 \author[hbn]{Roumeissa Kitouni}
@@ -67,11 +72,11 @@
 
 \include{sections/2-preliminaries}
 
-%\include{sections/3-method}
+\include{sections/3-method}
 
-%\include{sections/4-experiments}
+\include{sections/4-experiments}
 
-%\include{sections/5-conclusion}
+\include{sections/5-conclusion}
 
 \section*{References}
 

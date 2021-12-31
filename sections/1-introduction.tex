@@ -10,3 +10,14 @@ RL research offers the possibility of AI eventually growing beyond the need for 
 \item Equipping AI with the autonomy to generate its own learning examples through interaction with the environment, instead of relying on expert-labeled data.
 \item Developing a meta-paradigm that solves the problem of learning, irrespective of the task or application to be learned.
 \end{itemize}
+
+Relatively simple Reinforcement Learning algorithms have been limited in terms of performance and the complex tasks they can solve. However, by simply focusing on maximising performance to the exclusion of all other parameters, some research. Though results were immediately impressive, hindsight showed those results did not contribute as much as hoped to the field. Indeed, by finding more and more complex, specialised algorithms and optimizations, the very practical purpose of Reinforcement Learning as a general paradigm is lost sight of. The achievement of a very specilised algorithm solving a task at superhuman level fails to generalise to any other task. % in other words it's great that your super complex algorithm can beat all humans at starcraft, but like, that literally doesn't help me one bit to tackle any other problem
+
+The purpose of Reinforcement Learning is to be reasonably simple and straightforward to implement so that it can be used in a variety of real life applications with little tweaking or human expertise required. The answer to performance issues therefore should not come at the cost of making implementation more complex and specialised.
+
+Another problem in this direction a lot of research has taken is that implementation-level optimizations are often omitted when new methods are presented, presumably because they are considered to be unconsequential details. However, a closer examination of  major baseline implementations of RL algorithms show that not to be the case \cite{henderson2018deep}.
+
+It is clear that much of documented results cannot be attributed purely to the methods as described in published literature.
+
+
+In this paper, we shall be mindful of the aforementioned pitfalls of Reinforcement Learning research as we attempt to 
