@@ -7,24 +7,31 @@
   %\KwOutput{Your output}
   %\KwData{Testing set $x$}
   $\sum_{i=1}^{\infty} := 0$
+
   \tcc{Now this is an if...else conditional loop}
-  \For{k in [1, nepochs]}
-    {
-        Collect set of trajectories $\mathcal{D}_k$
-        
-        Call GC + Aggregation function for an estimate of V
+  \For{i in [1, epochs]}{     
+\For{i in [1, size]}{     
+         Run $\pi_{\theta_{old}}$ collect set of trajectories $\mathcal{D}_k$
+   }
+   }
 
-        Compute $\hat{V}$
+   Compute $\hat{V}$
 
-        Compute GAE
+   Compute GAE
 
-        Compute the policy loss and update the policy via gradient ascent
-         
-    }
+   Compute the policy loss and update the policy via gradient ascent
+
   \For{i in [1, n]}
     {
     	Update $V_{\phi^1}$	
     } 
     
 \caption{Generalized Critic Policy Optimization}
+
 \end{algorithm}
+
+\begin{figure}[!htb]
+\includegraphics[width=\linewidth]{images/model}
+\caption{Policy update scenario with a generalized critic.}
+\label{fig:model}
+\end{figure}
