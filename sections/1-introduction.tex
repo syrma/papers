@@ -1,5 +1,5 @@
 \section{Introduction}
-
+\label{sec:intro}
 In the recent years, technical advancement gave Artificial intelligence (AI) a new breath by facilitating the use of computation-heavy, highly scalable Artificial Neural Networks (ANN) as function approximators, leading to remarkable achievements in computer vision \cite{krizhevsky2012imagenet}, speech recognition\cite{dahl2011context}, and virtually every field of AI. It has thus been shown that despite their theoretical simplicity, ANNs can be a reliable tool to approximate complex, real-world functions given enough computational power. Deep Reinforcement Learning refers to the practice of combining the efficiency of new technologies with deep ANNs to put into practice the previously mostly theoretical field of Reinforcement Learning (RL). 
 
 Deep RL subsequently achieved impressive results, in particular in board games such as Go, Shogi and Chess\cite{silver2018general}, leading to the algorithm largely outperforming any human player. Other applications have included playing games from pixel input like Atari\cite{mnih2015human} or Doom\cite{kempka2016vizdoom}, or simulating complex tasks for robotics\cite{levine2016end} and self-driving cars\cite{pan2017virtual}. In several more cases however, Deep RL offers more potential for future AI research than tangible state-of-the-art results. For instance, Reinforcement Learning methods are not yet robust enough to safely use in physical systems, presenting challenges such as sample complexity as well as high sensitivity to random seeds and hyperparameters\cite{henderson2018deep} \cite{engstrom2020implementation} \cite{dossa2021empirical}.
@@ -9,11 +9,13 @@ While many applications are still more reliably solved with the help of human-ex
 \item Developing a meta-paradigm that solves the problem of learning, irrespective of the task or application to be learned.
 \end{itemize}
 
-Relatively simple Reinforcement Learning algorithms have been limited in terms of performance and the scope of tasks they can solve. However, simply focusing on maximising performance to the exclusion of all other parameters leadss to the development of unpractically complex methods that are hard to implement and tune.% Though results were immediately impressive, hindsight showed those results did not contribute as much as hoped to the field. Indeed, by finding more and more complex, specialised algorithms and optimizations, the very practical purpose of Reinforcement Learning as a general paradigm is lost sight of. The achievement of a very specilised algorithm solving a task at superhuman level fails to generalise to any other task. % in other words it's great that your super complex algorithm can beat all humans at starcraft, but like, that literally doesn't help me one bit to tackle any other problem
+Relatively simple Reinforcement Learning algorithms have been limited in terms of performance and the scope of tasks they can solve. However, simply focusing on maximising performance to the exclusion of all other parameters leadss to the development of unpractically complex methods that are hard to implement and tune.% 
 
-The purpose of Reinforcement Learning is to be reasonably simple and straightforward to implement so that it can be used in a variety of real life applications with little tweaking or human expertise required. %The answer to performance issues therefore should not come at the cost of making implementation more complex and specialized.
+The purpose of Reinforcement Learning is to be reasonably simple and straightforward to implement so that it can be used in a variety of real life applications with little tweaking or human expertise required.
 
 Another problem in this direction a lot of research has taken is that implementation-level optimizations are often omitted when new methods are presented, presumably because they are considered to be unconsequential details. However, empirical study of  major baseline implementations of RL algorithms show that reported results are often impossible to reproduce without specific fine-tuning\cite{henderson2018deep}\cite{islam2017reproducibility}\cite{andrychowicz2021matters}\cite{dossa2021empirical}.
 
 
-In this paper, we shall be mindful of the aforementioned pitfalls of Reinforcement Learning research as we attempt to optimize 
+In this paper, we shall be mindful of the aforementioned pitfalls of Reinforcement Learning research as we introduce a model whereby Policy Optimization algorithms can be expanded on and 
+
+The source code implementing the present work as well as the experiment logs presented in section \ref{sec:exp} can be consulted and accessed online\footnote{https://github.com/syrma/GC\_paper}.

@@ -1,38 +1,16 @@
 \section{Preliminaries}
-
+\label{sec:prelim}
 This work builds on past theory on Reinforcement Learning and Policy Gradients. In this section, we will briefly summarize the essential structure of the RL problem and the categories of solutions relevant to the context of the present work.
 
 \subsection{Markov Decision Processes}
 
 Reinforcement Learning is the field of Machine Learning concerned with decision making within an uncertain environment, acting upon it through actions with uncertain consequences, with the aim of achieving a specific goal while maximizing a numerical reward. A distinguishing feature of RL is that the agent interacts with the environment and pieces together a policy $\pi_theta$—the solution to the problem relying purely on the feedback of the environment with no input from human experts in any form. 
 
-It is possible to model virtually any problem that corresponds to the description above using a mathematical framework called a Markov Decision Process (MDP.)
+It is possible to model virtually any problem that corresponds to the description above using a mathematical framework called a Markov Decision Process (MDP.) 
 
-\begin{definition}
-A Markov Decision Process is a tuple (copy paste)
-\end{definition}
-
-\subsection{Categories of solutions}
-
-We can distinguish three general directions that research takes when devising a solution to RL problems: optimizing the policy function, estimating a value function, and representing the model. We tend to classify solutions by whether they include or omit one or more of the above-mentioned elements.
-
-\begin{description}
-\item[Policy-based] Policy Gradient methods mainly try to solve the RL problem directly by optimizing the policy function $\pi$. They are relatively straight-forward to implement 
-\item[Value-based]
-\item[Model-based] an internal representation (given or approximated) of the reward function and the transition probability function.
-\end{description}
-
-The former two can be grouped into the category of Model-free RL, as neither rely on having a model of the environment. Furthermore, a combination of both has been popularized in a paradigm known as Actor-Critic, whereby the policy update is weighted 
+The MDP is defined by the tuple ($\mathcal{S}, \mathcal{A}, \mathcal{P}, r, \rho_0$) where $\mathcal{S}$ is the set of states, $\mathcal{A}$ is the set of actions, $\mathcal{P}: \mathcal{S}\times\mathcal{A}\times\mathcal{S}\mapsto \mathbb{R}$ is the transition probability distribution, $r: \mathcal{S}\times\mathcal{A}\times\mathcal{S} \mapsto \mathbb{R}$ is the reward function, and $\rho_0:\mathcal{S}\mapsto\mathbb{R}$ is the initial state distribution.
 
 
 \subsection{Proximal Policy Optimization}
 
-PPO (Proximal Policy Optimization)\cite{schulman2017proximal} is one of the most popular Deep RL algorithms, which has since been applied to a wide range of domains like robotics, games and even chip design\cite{mirhoseini2021graph}. It is a comparatively accessible algorithm to implement and deploy. A trend in model-free RL has been to improve performance through increasingly complex methods, which comes at the great cost of making RL methods hard to reproduce and validate as well as unpractical to use in physical systems. This is at odds with the very purpose of advancing Reinforcement Learning research, a field aiming to create a general paradigm that requires less human intervention than any other known Artificial Intelligence model. 
-
-
-The present article aims to introduce a model whereby Policy Optimization algorithms can be expanded on and 
-
-
-%\subsection{Reproducibility Issues in Deep Reinforcement Learning}
-
-%It is clear that much of documented results cannot be attributed purely to the methods as described in published literature.	
+PPO (Proximal Policy Optimization\cite{schulman2017proximal}) is one of the most popular Deep RL algorithms, which has since been applied to a wide range of domains from robotics\cite{andrychowicz2020learning} to chip design\cite{mirhoseini2021graph}. It is a comparatively accessible algorithm to implement and deploy. A trend in model-free RL has been to improve performance through increasingly complex methods, which comes at the great cost of making RL methods hard to reproduce and validate as well as unpractical to use in physical systems. This is at odds with the very purpose of advancing Reinforcement Learning research, a field aiming to create a general paradigm that requires less human intervention than any other known Artificial Intelligence model. 

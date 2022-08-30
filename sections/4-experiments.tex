@@ -1,5 +1,5 @@
 \section{Experiments}
-
+\label{sec:exp}
 	To illustrate the potential of the theoretical model presented in section 3, we implemented an example to analyze the practical aspect as well as the empirical results.
 
 In this section, we will proceed to describe our experimental settings, explain choices related to the implementation, and present the resulting data as well as the conclusions we draw from them.
@@ -14,15 +14,15 @@ It is worth  noting that while none of these optimizations are formally included
 
 Due to the ill-defined nature of what consitutes a baseline for PPO or what degree of optimization still falls within the scope of the algorithm, we have elected to implement and run a minimalistic interpretation of the algorithm with only enough optimizations to be functional and to support the environments we test on. We used the Keras library to implement the neural networks and their optimizations.
 
-This implementation\footnote{https://github.com/syrma/RLExp} does not therefore reproduce the highest reported results for PPO, as the purpose of this research is to establish the effect of our contribution by comparison to a similar basis that does not implement it.
+This implementation does not therefore reproduce the highest reported results for PPO, as the purpose of this research is to establish the effect of our contribution by comparison to a similar basis that does not implement it.
 
-Following are the optimizations:
+Following are the optimizations and the main reason for their inclusion:
 
 \begin{description}
-\item[Support for continuous action space environments]
-\item[Average normalization]
+\item[Support for continuous action space environments] %(mean and std as output instead of logits(??))
+\item[Advantage normalization] while this optimization does not improve the final performance\cite{andrychowicz2020learning}
 \item[Reward normalization]
-\item[KL fallback]
+\item[KL fallback] Approximates the Kullback-Leibler (KL) divergence and cancels a policy update if the value is above a threshold. Implemented to prevent catastrophic unlearning\cite{dossa2021empirical}, a phenomenon observed in PPO where a suboptimal update causes the average episodic reward to drop brusquely and never recover.
 \end{description}
 
 The hyperparameters are detailed in table %\ref{hyperparameters}
@@ -33,16 +33,22 @@ The hyperparameters are detailed in table %\ref{hyperparameters}
       \hline 
       hyperparameter & value \\ 
       \hline 
-%      \verb!timesteps! & \verb!2M! \\
-      \verb!PPO epochs! &  \verb!8! \\
-      \verb!gamma! & \verb!0.99! \\
+      \verb!total timesteps! & \verb!2M! \\
+      \verb!PPO update iterations per epoch! &  \verb!80! \\
+      \verb!GAE gamma! & \verb!0.99! \\
       \verb!GAE lambda! & \verb!0.97! \\
       \verb!kl_target! & \verb!0.1! \\
+      \verb!policy network architecture! & \verb!FDS! \\
       \verb!(policy network) learning_rate! & \verb!3e-4! \\
+      \verb!(policy network) activation function & relu
+      \verb!value network architecture! & \verb!FDS! \\
+      \verb!(policy network) learning_rate! & \verb!3e-4! \\
+      \verb!(policy network) activation function & 
+
       \hline      
     \end{tabular}
   \end{center}
-  \caption{Hyperparameters}
+  \caption{Experiment parameters and their values}
   \label{hyperparameters}
 \end{table}
 
