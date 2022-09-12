@@ -38,17 +38,16 @@ The hyperparameters are detailed in table %\ref{hyperparameters}
       \verb!GAE gamma! & \verb!0.99! \\
       \verb!GAE lambda! & \verb!0.97! \\
       \verb!kl_target! & \verb!0.1! \\
-      \verb!policy network architecture! & \verb!FDS! \\
+      \verb!policy network hidden layers! & \verb![120, 84]! \\
       \verb!(policy network) learning_rate! & \verb!3e-4! \\
-      \verb!(policy network) activation function & relu
-      \verb!value network architecture! & \verb!FDS! \\
-      \verb!(policy network) learning_rate! & \verb!3e-4! \\
-      \verb!(policy network) activation function & 
-
+      \verb!(policy network) activation function! & \verb!relu!\\
+      \verb!value network hidden layers! & \verb![64]! \\
+      \verb!(value network) learning_rate! & \verb!3e-4! \\
+      \verb!(value network) activation function! & \verb!relu! \\
       \hline      
     \end{tabular}
   \end{center}
-  \caption{Experiment parameters and their values}
+  \caption{Experiment hyperparameters and their values}
   \label{hyperparameters}
 \end{table}
 
