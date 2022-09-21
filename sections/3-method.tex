@@ -6,27 +6,35 @@
   \KwInput{Initial actor network parameters $\theta_0$, initial critic parameter list $\phi^0_0, \dots, \phi^n_0$}
   %\KwOutput{Your output}
   %\KwData{Testing set $x$}
-  $\sum_{i=1}^{\infty} := 0$
 
-  \tcc{Now this is an if...else conditional loop}
-  \For{i in [1, epochs]}{     
-\For{i in [1, size]}{     
-         Run $\pi_{\theta_{old}}$ collect set of trajectories $\mathcal{D}_k$
+  \For{$i \leftarrow 1$ \KwTo total number of updates}{     
+\While{buffer is not full}{     
+  \tcc{collect set of trajectories $\mathcal{D}_k$}
+         Run $\pi_{\theta_{old}}$ to generate an action
+         
+         Store the current state, action, and reward in buffer
+         
+         \If{episode ends}
+         	{break}
    }
+   
+\If{episode was interrupted}{
+	bootstrap remaining values
    }
 
-   Compute $\hat{V}$
+  \For{$i \leftarrow 1$ \KwTo number of critics}{
+   Estimate the advantage functions $\hat{A_i}$ using any (or several) estimation methods}
 
-   Compute GAE
+   Compute the PPO-CLIP policy loss as: %formula
+   
+   Update the policy network
 
-   Compute the policy loss and update the policy via gradient ascent
-
-  \For{i in [1, n]}
+  \For{$i \leftarrow 1$ \KwTo number of critics}
     {
-    	Update $V_{\phi^1}$	
+    	Update the value network $V_{\phi^1}$
     } 
-    
-\caption{Generalized Critic Policy Optimization}
+}    
+\caption{PPO-CLIP with Generalized Critic Policy Optimization}
 
 \end{algorithm}
 
