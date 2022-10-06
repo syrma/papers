@@ -6,13 +6,13 @@ In this section, we will proceed to describe our experimental settings, explain 
 
 \subsection{Experimental Setting}
 
-\subsubsection{Implementation}
+\subsubsection{Code-level optimizations}
 
-\cite{shengyi2022the37implementation}
+A group of code-level optimizations have been identified and compiled by previous work \cite{engstrom2020implementation}\cite{shengyi2022the37implementation} in an effort to reproduce reported results for the PPO algorithm. 
 
-It is worth  noting that while none of these optimizations are formally included in the basic definition of the algorithm, some of them are a de facto part of any functional implementation, especially those that relate to compatibility with  continuous space environments. The rest are not strictly required for the algorithm to function. Nonetheless, they are needed to reproduce the state-of-the-art results and are, as a rule, included in benchmark implementations. %cite baselines and cleanrl
+It is worth  noting that while none of these optimizations are formally included in the basic definition of the algorithm or credited for its performance, some of them are a de-facto part of any functional implementation, especially those that relate to compatibility with  continuous space environments. The rest are not strictly required for the algorithm to function. Nonetheless, they are needed to reproduce the state-of-the-art results and are, as a rule, included in benchmark implementations \cite{huang2021cleanrl} \cite{baselines}. %cite baselines and cleanrl
 
-Due to the ill-defined nature of what consitutes a baseline for PPO or what degree of optimization still falls within the scope of the algorithm, we have elected to implement and run a minimalistic interpretation of the algorithm with only enough optimizations to be functional and to support the environments we test on. We used the Keras library to implement the neural networks and their optimizations.
+Due to the ill-defined nature of what constitutes a baseline for PPO or what degree of optimization still falls within the scope of the algorithm, we have elected to implement and run a minimalist interpretation of the algorithm with only enough optimizations to be functional and to support the environments we test on. We used the Keras library to implement the neural networks and their optimizations.
 
 This implementation does not therefore reproduce the highest reported results for PPO, as the purpose of this research is to establish the effect of our contribution by comparison to a similar basis that does not implement it.
 
@@ -21,9 +21,13 @@ Following are the optimizations and the main reason for their inclusion:
 \begin{description}
 \item[Support for continuous action space environments] %(mean and std as output instead of logits(??))
 \item[Advantage normalization] while this optimization does not improve the final performance\cite{andrychowicz2020learning}
-\item[Reward normalization]
+%Advantage norm essentially doesn't make your gradients go insane, and you also get an equal number of positive gradients to negative gradients, making your policy weights not go insane (which is why you tend to see more stable training) But at the tail end of training, if your algo is stable 'enough', the gradients at the end of training are really miniscule anyway, and do nothing to improve final performance
+\item[Reward scaling] We divide the rewards by the (estimated) standard deviation of the discounted cumulative rewards at step $t$ by a factor $\gamma$: $R_t = \sum_{i=0}^t \gamma^{t-i} r_i$. This optimization was only used for training on the Hopper task.
 \item[KL fallback] Approximates the Kullback-Leibler (KL) divergence and cancels a policy update if the value is above a threshold. Implemented to prevent catastrophic unlearning\cite{dossa2021empirical}, a phenomenon observed in PPO where a suboptimal update causes the average episodic reward to drop brusquely and never recover.
 \end{description}
+
+\subsubsection{Testing Setup}
+
 
 The hyperparameters are detailed in table %\ref{hyperparameters}
 
@@ -53,7 +57,6 @@ The hyperparameters are detailed in table %\ref{hyperparameters}
 
 
 
-\subsubsection{Testing Setup}
 
 
 
@@ -62,6 +65,12 @@ we test in pybullet
 4 environements
 
 Classic PPO, PPO w/GC, PPO w/ GC + bootstrap
+
+
+
+%Good for Hopper
+% Meh for Humanoid
+% bad for hc? smth bl3t
 
 \subsection{Experimental Results and Analysis}
 
