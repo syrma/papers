@@ -58,13 +58,11 @@ The hyperparameters are detailed in table %\ref{hyperparameters}
 
 
 
+\subsubsection{Experiment tracking}
 
+Our experiment setting consists of four robotic tasks from the Pybullet suite of environments using Gym. Gym\cite{brockman2016openai} is an open source toolkit for RL research initially released by OpenAI. 
 
-we test in pybullet
-
-4 environements
-
-Classic PPO, PPO w/GC, PPO w/ GC + bootstrap
+We run the algorithm on the four continuous tasks with different settings (baseline PPO, PPO with Generalized Critic, PPO with Generalized Critic + bootstrap). We run each configuration over 10 random seeds and track the recorded returns using Weights and Biases\cite{wandb} 
 
 
 
