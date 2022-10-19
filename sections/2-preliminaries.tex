@@ -1,6 +1,6 @@
 \section{Preliminaries}
 \label{sec:prelim}
-This work builds on past theory on Reinforcement Learning and Policy Gradients. In this section, we will briefly summarize the essential structure of the RL problem and the categories of solutions relevant to the context of the present work.
+This work builds on past theory on Reinforcement Learning and Policy Gradients. In this section, we will briefly summarize the essential structure of the RL problem and the categories of solutions relevant in the context of the present work.
 
 \subsection{Markov Decision Processes}
 
@@ -13,6 +13,18 @@ The MDP is defined by the tuple ($\mathcal{S}, \mathcal{A}, \mathcal{P}, r, \rho
 
 \subsection{Proximal Policy Optimization}
 
-PPO (Proximal Policy Optimization\cite{schulman2017proximal}) is one of the most popular Deep RL algorithms, which has since been applied to a wide range of domains from robotics\cite{andrychowicz2020learning} to chip design\cite{mirhoseini2021graph}. It is a comparatively accessible algorithm to implement and deploy. A trend in model-free RL has been to improve performance through increasingly complex methods, which comes at the great cost of making RL methods hard to reproduce and validate as well as unpractical to use in physical systems. This is at odds with the very purpose of advancing Reinforcement Learning research, a field aiming to create a general paradigm that requires less human intervention than any other conventional Artificial Intelligence paradigm. 
+PPO (Proximal Policy Optimization\cite{schulman2017proximal}) is one of the most popular Deep RL algorithms, which has since been applied to a wide range of domains from robotics\cite{andrychowicz2020learning} to chip design\cite{mirhoseini2021graph}. It is a comparatively accessible algorithm to implement and deploy. A trend in model-free RL has been to improve performance through increasingly complex methods, which comes at the great cost of making RL methods hard to reproduce and validate as well as unpractical to use in physical systems. This conflicts with some of the stated goals of Reinforcement Learning research, namely the aim to create a general paradigm that requires less human intervention than any other conventional Artificial Intelligence paradigm. This makes PPO
+
+\[
+\theta_{k+1} = \arg \max_{\theta} \frac{1}{|\mathcal{D}_k|T}\sum_{t
+\] 
+
+In classical Policy Gradient 
 
 \subsection{Generalized Advantage Estimation}
+
+
+
+\subsection{Actor-critic style RL}
+
+
