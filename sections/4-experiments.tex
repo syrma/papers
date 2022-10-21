@@ -22,13 +22,17 @@ Following are the optimizations and the main reason for their inclusion:
 \item[Support for continuous action space environments] %(mean and std as output instead of logits(??))
 \item[Advantage normalization] while this optimization does not improve the final performance\cite{andrychowicz2020learning}
 %Advantage norm essentially doesn't make your gradients go insane, and you also get an equal number of positive gradients to negative gradients, making your policy weights not go insane (which is why you tend to see more stable training) But at the tail end of training, if your algo is stable 'enough', the gradients at the end of training are really miniscule anyway, and do nothing to improve final performance
-\item[Reward scaling] We divide the rewards by the (estimated) standard deviation of the discounted cumulative rewards at step $t$ by a factor $\gamma$: $R_t = \sum_{i=0}^t \gamma^{t-i} r_i$. This optimization was only used for training on the Hopper task.
+\item[Reward scaling] We divide the rewards by the (estimated) standard deviation of the discounted cumulative rewards at step $t$ by a factor $\gamma$: $R_t = \sum_{i=0}^t \gamma^{t-i} r_i$. %This optimization was only used for training on the Hopper task.
 \item[KL fallback] Approximates the Kullback-Leibler (KL) divergence and cancels a policy update if the value is above a threshold. Implemented to prevent catastrophic unlearning\cite{dossa2021empirical}, a phenomenon observed in PPO where a suboptimal update causes the average episodic reward to drop brusquely and never recover.
 \end{description}
 
 \subsubsection{Testing Setup}
 
+Our experiment setting consists of four robotic tasks from the Pybullet suite of environments using Gym. Gym\cite{brockman2016openai} is an open source toolkit for RL research initially released by OpenAI. 
 
+We run the algorithm on the four continuous tasks with different settings (baseline PPO, PPO with Generalized Critic, PPO with Generalized Critic + bootstrap). We run each configuration over 10 random seeds and track the recorded returns using Weights and Biases\cite{wandb}
+
+For each of the critics, we estimate the advantage function using the Generalized Advantage Estimation method\cite{schulman2015highdimensional}.
 The hyperparameters are detailed in table %\ref{hyperparameters}
 
 \begin{table}
@@ -59,10 +63,7 @@ The hyperparameters are detailed in table %\ref{hyperparameters}
 
 
 \subsubsection{Experiment tracking}
-
-Our experiment setting consists of four robotic tasks from the Pybullet suite of environments using Gym. Gym\cite{brockman2016openai} is an open source toolkit for RL research initially released by OpenAI. 
-
-We run the algorithm on the four continuous tasks with different settings (baseline PPO, PPO with Generalized Critic, PPO with Generalized Critic + bootstrap). We run each configuration over 10 random seeds and track the recorded returns using Weights and Biases\cite{wandb} 
+ 
 
 
 
