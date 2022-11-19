@@ -4,9 +4,7 @@
 
 In this section, we will proceed to describe our experimental settings, explain choices related to the implementation, and present the resulting data as well as the conclusions we draw from them.
 
-\subsection{Experimental Setting}
-
-\subsubsection{Code-level optimizations}
+\subsection{Code-level optimizations}
 
 A group of code-level optimizations have been identified and compiled by previous work \cite{engstrom2020implementation}\cite{shengyi2022the37implementation} in an effort to reproduce reported results for the PPO algorithm. 
 
@@ -26,7 +24,7 @@ Following are the optimizations and the main reason for their inclusion:
 \item[KL fallback] Approximates the Kullback-Leibler (KL) divergence and cancels a policy update if the value is above a threshold. Implemented to prevent catastrophic unlearning\cite{dossa2021empirical}, a phenomenon observed in PPO where a suboptimal update causes the average episodic reward to drop brusquely and never recover.
 \end{description}
 
-\subsubsection{Testing Setup}
+\subsection{Testing Setup}
 
 Our experiment setting consists of four robotic tasks from the Pybullet suite of environments using Gym. Gym\cite{brockman2016openai} is an open source toolkit for RL research initially released by OpenAI. 
 
@@ -62,7 +60,7 @@ The hyperparameters are detailed in table %\ref{hyperparameters}
 
 
 
-\subsubsection{Experiment tracking}
+\subsection{Experiment tracking}
  
 
 
@@ -72,6 +70,20 @@ The hyperparameters are detailed in table %\ref{hyperparameters}
 % bad for hc? smth bl3t
 
 \subsection{Experimental Results and Analysis}
+
+\begin{tabular}{llll}
+    \hline
+    & Baseline PPO & GC with bootstrap & GC without bootstrap \\
+    \hline
+    Inverted Double Pendulum & (1556.141, 6682.396) & (1332.913, 6237.274) & (1667.383, 9358.412) \\
+    \hline
+    Half Cheetah & (-1487.176, 484.245) & (-1033.386, 411.735) & (-970.766, 465.321)\\
+    \hline
+    Hopper & (646.152, 901.31) & (748.151, 899.803) & (754.571, 908.167) \\
+    \hline
+    Walker 2D & (95.908, 427.7) & (86.125, 656.49) & (204.608, 593.467) \\
+    \hline  
+\end{tabular}
 
 
 \begin{figure}[!htb]
