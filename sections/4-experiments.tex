@@ -71,23 +71,47 @@ The hyperparameters are detailed in table %\ref{hyperparameters}
 
 \subsection{Experimental Results and Analysis}
 
-\begin{tabular}{llll}
+\begin{table}
+  \begin{center}
+\begin{tabular}{p{0.35\textwidth}|p{0.2\textwidth}p{0.2\textwidth}p{0.2\textwidth}}
     \hline
     & Baseline PPO & GC with bootstrap & GC without bootstrap \\
     \hline
-    Inverted Double Pendulum & (1556.141, 6682.396) & (1332.913, 6237.274) & (1667.383, 9358.412) \\
+    Inverted Double Pendulum & (\textbf{1530.122}, 7197.542) & (1458.429, \textbf{9358.719}) & (1227.872, 9358.412) \\
     \hline
-    Half Cheetah & (-1487.176, 484.245) & (-1033.386, 411.735) & (-970.766, 465.321)\\
+    Half Cheetah & (-1487.176, \textbf{484.245}) & (-1033.386, 411.735) & (\textbf{-970.766}, 465.321)\\
     \hline
-    Hopper & (646.152, 901.31) & (748.151, 899.803) & (754.571, 908.167) \\
+    Hopper & (646.152, 901.31) & (748.151, 899.803) & \textbf{(754.571, 908.167)} \\
     \hline
-    Walker 2D & (95.908, 427.7) & (86.125, 656.49) & (204.608, 593.467) \\
+    Walker 2D & (95.908, 427.7) & (86.125, \textbf{656.49}) & (\textbf{204.608}, 593.467) \\
     \hline  
 \end{tabular}
+  \end{center}
+  \caption{Final performance for each training set (min, max)}
+  \label{hyperparameters}
+\end{table}
+
+Different configurations converge better with different random seeds
 
 
 \begin{figure}[!htb]
+\begin{minipage}[b]{.5\linewidth}
+  \centering
+  \centerline{\includegraphics[width=\linewidth]{images/idpseed90}}
+%  \vspace{2.0cm}
+%  \centerline{(a) Walker2DBulletEnv-v0}\medskip
+\end{minipage}
+\begin{minipage}[b]{.5\linewidth}
+  \centering
+  \centerline{\includegraphics[width=\linewidth]{images/idpseed80}}
+%  \vspace{2.0cm}
+%  \centerline{(b) HalfCheetahBulletEnv-v0}\medskip
+\end{minipage}
+  \caption{Two identical runs of InvertedDoublePendulumBulletEnv with different random seeds}
+  \label{seeds}
+\end{figure}
 
+\begin{figure}[!htb]
 \begin{minipage}[b]{.5\linewidth}
   \centering
   \centerline{\includegraphics[width=\linewidth]{images/walker2D}}
