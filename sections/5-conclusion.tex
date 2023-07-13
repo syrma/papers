@@ -1,17 +1,24 @@
 \section{Conclusion}
 \label{sec:conc}
-We have presented a general model for critics in Actor-Critic methods. We believe that this representation can become a basis to simplify the design of complex deep reinforcement learning agents.
 
-We have provided a basic, practical example of exploiting the model to design a practical method and test it against currently challenging state-of-the-art control tasks.
+%In the previous sections, we have presented a model of ActorCritic.
 
-As a future research perspective, we aim to provide a more complete set of experiments, in particular: 
-\begin{itemize}
-\item thoroughly investigate the range of possible hyperparameters and deduce a more general use case;
-\item represent the aggregation function with different models, including trained nonlinear approximators;
-\item encompass more known policy optimization methods and algorithms, and adapt our method accordingly.
-\end{itemize}
 
-In addition to these practical considerations, we intend to study the Generalized Critic model's shortcomings and provide more formal representations.
+Moving forward, an in-depth ablation study is needed to identify optimal configurations of both hyperparameters and implementation details to improve convergence and sample complexity. Moreover, due to the observed high variance in results and the extreme sensitivity of the environments to random seeds, it may prove challenging to perform consistently well for any static configuration. Future theoretical and practical improvements in applying Reinforcement Learning may be integrated in the hopes of stabilizing run-to-run performance. 
+
+
+%We have presented a general model for critics in Actor-Critic methods. We believe that this representation can become a basis to %simplify the design of complex deep reinforcement learning agents.
+
+%We have provided a basic, practical example of exploiting the model to design a practical method and test it against currently %challenging state-of-the-art control tasks.
+
+%As a future research perspective, we aim to provide a more complete set of experiments, in particular: 
+%\begin{itemize}
+%\item thoroughly investigate the range of possible hyperparameters and deduce a more general use case;
+%\item represent the aggregation function with different models, including trained nonlinear approximators;
+%\item encompass more known policy optimization methods and algorithms, and adapt our method accordingly.
+%\end{itemize}
+
+%In addition to these practical considerations, we intend to study the Generalized Critic model's shortcomings and provide more formal %representations.
 
 
 
