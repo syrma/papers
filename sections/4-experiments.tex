@@ -73,6 +73,13 @@ The hyperparameters are detailed in table %\ref{hyperparameters}
 
 \subsection{Experimental Results and Analysis}
 
+We notice that changes in performance depend highly on the testing environment. 
+As in figure \ref{exp2}, Hopper is the most reliably improved, followed by Humanoid.
+
+GC (without bootstrap) tends to improve on minimal values, which may indicate a reduction in the number of non-converging runs.
+
+GC (with bootstrap) reaches better performance across environments, potentially indicating that multiple critics/value function estimates help reach better optimization goals in the same amount of runs, which would make it more sample-efficient.
+
 %analysis
 % comment the figures
 

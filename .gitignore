@@ -7,3 +7,5 @@
 *.out
 *.spl
 elsarticle-template.synctex.gz
+elsarticle.cls
+elsarticle-num.bst
