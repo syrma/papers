@@ -17,9 +17,11 @@ The MDP is defined by the tuple ($\mathcal{S}, \mathcal{A}, \mathcal{P}, r, \rho
 \item $\rho_0:\mathcal{S}\mapsto\mathbb{R}$ is the initial state distribution.
 \end{itemize}
 
-\subsection{Policy Optimization}
+For any reasonably complex RL task, environments are partially observable and the MDP cannot be solved directly. Instead we use function estimation to try and find the parameters that respond to the environment in a satisfactory manner. 
 
-For any reasonably complex RL task, environments are partially observable and the MDP cannot be solved directly. One of the possible ways to solve the RL problem is to estimate a policy through a stochastic gradient ascent algorithm. A commonly used estimator is as follows:
+\subsection{Policy and Value Optimization}
+
+ One of the possible ways to solve the R problem is to estimate a policy $\pi$ through a stochastic gradient ascent algorithm. A commonly used estimator is as follows:
 
 \[
 g = \mathbb{E}
