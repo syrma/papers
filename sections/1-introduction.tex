@@ -23,9 +23,11 @@ Another problem in this direction a lot of research has taken is that implementa
 
 % In this paper, we shall be mindful of the aforementioned pitfalls of RL research as we introduce a model whereby Policy Optimization algorithms can be expanded on and optimized. We also present our open-source sigle-file implementation for the Proximal Policy Optimization\cite{schulman2017proximal}(PPO) Deep RL algorithm and an implementation of our theoretical model on top of it. 
 
+In this paper, we shall be mindful of the aforementioned pitfalls of RL research as we work on the following contributions:
+
 \begin{itemize}
-\item Introduce an Ensemble-based model whereby Policy Optimization algorithms can be expanded on, named Generalized Critic, which is the option to combine the estimates of different value functions to more precisely guide policy update. By successfully representing more of the usually implicit implementation details, we create a theoretical model that represents more accurately the practical results of different RL algorithms in their applications.
-\item We validate through empirical study the 
+\item We introduce an Ensemble-based model whereby Policy Optimization algorithms can be expanded on, named Generalized Critic, which is the option to combine the estimates of different value functions to more precisely guide policy update. By successfully representing more of the usually implicit implementation details, we create a theoretical model that represents more accurately the practical results of different RL algorithms in their applications.
+\item We validate through empirical study the performance and usability of our model by testing it against standard continuous control problems from the PyBullet suite using OpenAI Gym.
 \item We release our open-source single-file implementation for the Proximal Policy Optimization\cite{schulman2017proximal}(PPO) Deep RL algorithm enriched with the option of Generalized Critic. 
 \end{itemize}
 

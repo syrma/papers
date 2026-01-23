@@ -1,4 +1,4 @@
-\section{Preliminaries}
+\section{Preliminaries and Related Works}
 \label{sec:prelim}
 This work builds on past theory on Reinforcement Learning and Policy Gradients. In this section, we will briefly summarize the essential structure of the RL problem and the categories of solutions relevant in the context of the present work.
 
@@ -57,5 +57,17 @@ L_{\text{PPO}} = \mathbb{E}\min\left(\frac{\pi(a_t | s_t)}{\pi_{\text{old}}(a_t|
 
 where the ratio $\frac{\pi(a_t | s_t)}{\pi_{\text{old}}(a_t|s_t)}$ indicates how much more or less likely an action is to be taken according to the new policy compared to the old one. The clip function helps limit the size of the objective, with $\epsilon$ being the amount of clipping, so that we are less likely to take dramatic steps in updating the policy. Limiting the size of the update step is a characteristic feature of Trust-Region\cite{Schulman2015TrustRP} methods to make the policy improve monotonically or at least avoid drops in performance that may prevent the algorithm from converging which is one of the best known pitfalls of natural policy gradient methods.
 
+There have been many efforts to reduce the high variance associated with these algorithms to make them more sample-efficient.
+
+\subsection{Generalization and performance optimization for PPO}
+
+\cite(costa)(effort to standardise implementation and reproducibility)
 
 
+\subsection{Ensemble methods in Reinforcement Learning}
+
+\cite{lee2021sunrise}
+
+a critic NN without the dependency on system dynamics is deployed to approximate the value function, while the advantage function is integrated into an actor NN to reduce variance during the learning process  \cite{wang2025efficiency}
+
+\cite(ac2)
