@@ -6,6 +6,7 @@
 *.log
 *.out
 *.spl
+notes and drafts/.obsidian/*
 elsarticle-template.synctex.gz
 elsarticle.cls
 elsarticle-num.bst
