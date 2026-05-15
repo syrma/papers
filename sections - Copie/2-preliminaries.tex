@@ -1,13 +1,10 @@
-\section{Preliminaries and Related Works}
+\section{Preliminaries}
 \label{sec:prelim}
 This work builds on past theory on Reinforcement Learning and Policy Gradients. In this section, we will briefly summarize the essential structure of the RL problem and the categories of solutions relevant in the context of the present work.
 
+\subsection{RL and Markov Decision Processes}
 
-\subsection{Background}
-
-\subsubsection*{RL and Markov Decision Processes}
-
-Reinforcement Learning is the field of Machine Learning concerned with decision making within an uncertain environment, acting upon it through actions with uncertain consequences, with the aim of achieving a specific goal while maximizing a numerical reward. A distinguishing feature of RL is that the agent interacts with the environment and pieces together a policy $\pi_{\theta}$––the solution to the problem relying purely on the feedback of the environment with no input from human experts in any form. 
+Reinforcement Learning is the field of Machine Learning concerned with decision making within an uncertain environment, acting upon it through actions with uncertain consequences, with the aim of achieving a specific goal while maximizing a numerical reward. A distinguishing feature of RL is that the agent interacts with the environment and pieces together a policy $\pi_theta$––the solution to the problem relying purely on the feedback of the environment with no input from human experts in any form. 
 
 It is possible to model virtually any problem that corresponds to the description above using a mathematical framework called a Markov Decision Process (MDP.) 
 
@@ -20,11 +17,9 @@ The MDP is defined by the tuple ($\mathcal{S}, \mathcal{A}, \mathcal{P}, r, \rho
 \item $\rho_0:\mathcal{S}\mapsto\mathbb{R}$ is the initial state distribution.
 \end{itemize}
 
-For any reasonably complex RL task, environments are partially observable and the MDP cannot be solved directly. Instead we use function estimation to try and find the parameters that respond to the environment in a satisfactory manner. 
+\subsection{Policy Optimization}
 
-\subsubsection*{Policy and Value Optimization}
-
- One of the possible ways to solve the R problem is to estimate a policy $\pi$ through a stochastic gradient ascent algorithm. A commonly used estimator is as follows:
+For any reasonably complex RL task, environments are partially observable and the MDP cannot be solved directly. One of the possible ways to solve the RL problem is to estimate a policy through a stochastic gradient ascent algorithm. A commonly used estimator is as follows:
 
 \[
 g = \mathbb{E}
@@ -48,7 +43,7 @@ Though in practice, the advantage function is not known and is often replaced by
 RL algorithms that estimate both a stochastic policy and a function that evaluates the current policy (such as the advantage function) are known as Actor/Critic algorithms. This is in reference to the function of each part: the current policy is responsible for generating the agent's next action (the actor) while the advantage function returns a positive or a negative value associated with each action (critic) thus influencing the update that will create the future policy.
 
 
-\subsubsection*{Proximal Policy Optimization}
+\subsection{Proximal Policy Optimization}
 
 Proximal Policy Optimization\cite{schulman2017proximal} (PPO) is a popular Actor/Critic Deep RL algorithm. It has since its creation been applied to a wide range of domains both in simulation and real life from robotics\cite{andrychowicz2020learning} to chip design\cite{mirhoseini2021graph}. It is a comparatively accessible algorithm to implement and deploy. A trend in model-free RL has been to improve performance through increasingly complex methods, which comes at the great cost of making RL methods hard to reproduce and validate as well as unpractical to use in physical systems. This conflicts with some of the stated goals of RL research, namely the aim to create a general paradigm that requires less human intervention than any other conventional AI paradigm. PPO balances ease of application with performance and is a good candidate for testing and improving generalization.
 
@@ -60,25 +55,5 @@ L_{\text{PPO}} = \mathbb{E}\min\left(\frac{\pi(a_t | s_t)}{\pi_{\text{old}}(a_t|
 
 where the ratio $\frac{\pi(a_t | s_t)}{\pi_{\text{old}}(a_t|s_t)}$ indicates how much more or less likely an action is to be taken according to the new policy compared to the old one. The clip function helps limit the size of the objective, with $\epsilon$ being the amount of clipping, so that we are less likely to take dramatic steps in updating the policy. Limiting the size of the update step is a characteristic feature of Trust-Region\cite{Schulman2015TrustRP} methods to make the policy improve monotonically or at least avoid drops in performance that may prevent the algorithm from converging which is one of the best known pitfalls of natural policy gradient methods.
 
-There have been many efforts to reduce the high variance associated with these algorithms to make them more sample-efficient.
-
-\subsection{Related Works}
-
-\subsubsection*{Generalization and performance optimization for PPO}
-
-\cite{shengyi2022the37implementation}(effort to standardise implementation and reproducibility)
 
 
-\subsubsection*{Ensemble methods in Reinforcement Learning}
-
-\cite{lee2021sunrise}
-
-a critic NN without the dependency on system dynamics is deployed to approximate the value function, while the advantage function is integrated into an actor NN to reduce variance during the learning process  \cite{wang2025efficiency}
-
-\cite{labao2018ac2} test a policy gradient algorithm that employs a primary and a secondary critic to manage both bias and variance in policy gradients. 
-
-\cite{khan2025optimizing}
-
-% recent, uses PPO, uses implementation-level optimisations, uses fps game doom as environment, can be mentioned in applications for ppo
-
-\cite{dossa2021empirical}

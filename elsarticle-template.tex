@@ -6,6 +6,15 @@
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
+\usepackage{titlesec}
+
+
+\titleformat{\subsection}
+{\normalfont\bfseries}{\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+{\normalfont\bfseries}{\thesubsection}{1em}{}
+
 %\journal{Journal of \LaTeX\ Templates}
 
 %%%%%%%%%%%%%%%%%%%%%%%
@@ -54,18 +63,19 @@
 \title{Generalized Critic: An Ensemble-Based Value Approximation for On-Policy Actor-Critic Deep Reinforcement Learning}
 
 %% or include affiliations in footnotes:
-%\author[hbn]{Roumeissa Kitouni}
-%\cortext[mycorrespondingauthor]{Corresponding author}
-%\ead{kitouni.romaissa@gmail.com}
+\author[cne2]{Roumeissa Kitouni}
+\cortext[mycorrespondingauthor]{Corresponding author}
+\ead{roumeissa.kitouni@univ-constantine2.dz}
 
-%\author[cne]{Abderrahim Kitouni}
-%\ead{a.kitouni@gmail.com}
+\author[cne2]{Fouzia Benchikha}
+\ead{fouzia.benchikha@univ-constantine2.dz}
 
-%\author[hbn]{Feng Jiang}
-%\ead{fjiang@hit.edu.cn}
+
+
 
 %\address[hbn]{Harbin Institute of Technology, 92 Xidazhi Street, Nangang District, Harbin City, Heilongjiang Province, China}
 %\address[cne]{Université frères Mentouri Constantine 1, route d'Ain El Bey, 25017 Constantine, Algeria}
+\address[cne2]{LIRE Laboratory, Faculty of New Technologies of Information and Communication, University of Abdelhamid Mehri Constantine 2, Constantine 25016, Algeria}
 
 \input{sections/0-abstract}
 
@@ -77,11 +87,11 @@
 
 \include{sections/2-preliminaries}
 
-%\include{sections/3-method}
+\include{sections/3-method}
 
-%\include{sections/4-experiments}
+\include{sections/4-experiments}
 
-%\include{sections/5-conclusion}
+\include{sections/5-conclusion}
 
 % -------------------------------------------------------------------------
 \bibliography{mybibfile}
